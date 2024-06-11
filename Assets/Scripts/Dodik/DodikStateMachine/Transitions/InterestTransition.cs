@@ -8,7 +8,7 @@ public class InterestTransition : Transition
     [SerializeField] private BaseStateMachine _baseStateMachine;
     [SerializeField] private bool _fright = false;
 
-    private void OnEnable()
+    private void Start()
     {
         _perceptionZones.InterestingDetected += OnInterestingDetected;
     }

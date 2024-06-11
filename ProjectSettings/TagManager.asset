@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - PerceptionZones
-  - PlayerTools
+  - InterestingPlace
   - Enemy
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Enviroment
+  - Dodik
+  - PlayerTools
   - 
   - 
   - 
