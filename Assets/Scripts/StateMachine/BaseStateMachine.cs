@@ -46,4 +46,10 @@ public abstract class BaseStateMachine : MonoBehaviour
         if (_currentState != null)
             _currentState.Enter(_target);
     }
+
+    public void ChangeTarget(GameObject newTarget)
+    {
+        if (newTarget != null)
+            _target = newTarget;
+    }
 }
