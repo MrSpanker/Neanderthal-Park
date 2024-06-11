@@ -8,6 +8,8 @@ public class Ground : MonoBehaviour
 
     public int width = 100;
     public int depth = 100;
+    public float min;
+    public float max;
     public float spacing = 1.1f;
 
     public List<GameObject> _objects = new List<GameObject>();
@@ -19,7 +21,8 @@ public class Ground : MonoBehaviour
         {
             for (int z = 0; z < depth; z++)
             {
-                Vector3 pos = new Vector3(x * spacing, Mathf.PerlinNoise(x, 1f), z * spacing);
+                Vector3 pos = new Vector3(x * spacing, Random.Range(min, max), z * spacing);
+                //Vector3 pos = new Vector3(x * spacing, Mathf.PerlinNoise(x * spacing, z * spacing), z * spacing);
                 GameObject newCube = Instantiate(cubePrefab, pos, Quaternion.identity);
                 _objects.Add(newCube);
                 newCube.transform.parent = transform; 
