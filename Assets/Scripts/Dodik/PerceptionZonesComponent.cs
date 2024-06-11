@@ -11,16 +11,18 @@ public class PerceptionZonesComponent : MonoBehaviour
     public event UnityAction<GameObject> DangerDetected;
     public event UnityAction<GameObject> InterestingDetected;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (true) // Тут нужна логика для опасности
+        if (other.gameObject.TryGetComponent<InterestingPlace>(out _))
         {
-            InterestingDetected?.Invoke(collision.gameObject);
-
+            Debug.Log("Точка интереса обнаружена: " + other.gameObject.name);
+            InterestingDetected?.Invoke(other.gameObject);
         }
-        else
+
+        else 
         {
-            DangerDetected?.Invoke(collision.gameObject);
+            Debug.Log("Обнаружена опасность: " + other.gameObject.name);
+            DangerDetected?.Invoke(other.gameObject);
         }
     }
 }
