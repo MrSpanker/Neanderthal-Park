@@ -30,10 +30,16 @@ public abstract class BaseStateMachine : MonoBehaviour
     {
         _currentState = startState;
 
-        if (_currentState != null)
-            _currentState.Enter(_target);
+        if (_currentState == null)
+        {
+            Debug.LogError("Не назначено начальное состояние в " + GetType().Name);
+            return;
+        }
 
-        Debug.Log("Перезагрузилась машина состояний ГГ");
+        _currentState.Enter(_target);
+
+        Debug.Log("Перезагрузилась " + GetType().Name);
+        Debug.Log(GetType().Name + " вошёл в " + _currentState.GetType().Name);
     }
 
     private void Transit(State nextState)
@@ -43,8 +49,14 @@ public abstract class BaseStateMachine : MonoBehaviour
 
         _currentState = nextState;
 
-        if (_currentState != null)
-            _currentState.Enter(_target);
+        if (_currentState == null)
+        {
+            Debug.LogError(GetType().Name + " не может отпределить следующее состояние");
+            return;
+        }
+
+        _currentState.Enter(_target);
+        Debug.Log(GetType().Name + " вошёл в " + _currentState.GetType().Name);
     }
 
     public void ChangeTarget(GameObject newTarget)

@@ -1,11 +1,7 @@
-using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
-public class MoveState : State
+public class StrollState : State
 {
     [SerializeField] private float _speed;
     [SerializeField] private Transform _objectToMove;

@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FrightTransition : Transition
 {
-    [SerializeField] private PerceptionZonesComponent _perceptionZones;
-    [SerializeField] private BaseStateMachine _baseStateMachine;
+    [SerializeField] private DodikPerceptionZones _perceptionZones;
+    [SerializeField] private BaseStateMachine _stateMachine;
     [SerializeField] private bool _fright = false;
 
     private void OnEnable()
@@ -20,7 +18,7 @@ public class FrightTransition : Transition
 
     private void OnDangerDetected(GameObject danger)
     {
-        _baseStateMachine.ChangeTarget(danger);
+        _stateMachine.ChangeTarget(danger);
         NeedTransit = true;
     }
 

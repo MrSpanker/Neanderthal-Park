@@ -19,8 +19,6 @@ public abstract class State : MonoBehaviour
                 transition.enabled = true;
                 transition.Init(Target);
             }
-
-            Debug.Log("Вошёл в " + GetType().Name);
         }
     }
 
