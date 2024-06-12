@@ -11,20 +11,34 @@ public class MoveState : State
 
     private void OnEnable()
     {
-        _defaultSpeed = _agent.speed;
-        _agent.speed = _speed;
+        if (_agent != null)
+        {
+            _defaultSpeed = _agent.speed;
+            SetSpeed(_speed);
+        }
     }
 
     private void OnDisable()
     {
-        _agent.speed = _defaultSpeed;
+        if (_agent != null)
+        {
+            SetSpeed(_defaultSpeed);
+        }
     }
 
     private void Update()
     {
-        if (Target == null || _objectToMove == null) return;
+        if (Target == null || _objectToMove == null || _agent == null || !_agent.isOnNavMesh) return;
 
         _agent.isStopped = false;
         _agent.destination = Target.transform.position;
+    }
+
+    private void SetSpeed(float speed)
+    {
+        if (_agent != null)
+        {
+            _agent.speed = speed;
+        }
     }
 }

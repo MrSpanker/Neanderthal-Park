@@ -9,7 +9,7 @@ public abstract class BaseStateMachine : MonoBehaviour
     protected State _currentState;
 
     [SerializeField] protected State _firstState;
-    [SerializeField] protected GameObject _target;
+    [SerializeField] public GameObject _target;
 
     public void Start()
     {
