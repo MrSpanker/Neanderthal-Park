@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7653445295234995069}
+  - component: {fileID: 3768513335862750021}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 135997762124133411}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3768513335862750021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8083129790909270386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e4d298639c77f4da71d2632fcf0cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &462059054271124424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,6 +93,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5a07570e5bb768a48904b723fc6c7953, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a651490b3f3e9474dba2d78b9c5d6cb1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a07570e5bb768a48904b723fc6c7953, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b3cc80e299b758b4e8d275640bd6a62e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a07570e5bb768a48904b723fc6c7953, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bfcc11e9a0941d42993837b671b242e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5a07570e5bb768a48904b723fc6c7953, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b904484f710c65f479e76d229990ac1f, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a07570e5bb768a48904b723fc6c7953, type: 3}
       propertyPath: m_Name
       value: ground 1
