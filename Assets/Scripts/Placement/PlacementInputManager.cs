@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlacementInputManager : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class PlacementInputManager : MonoBehaviour
     [SerializeField] private LayerMask _placementLayerMask;
 
     private Vector3 _lastPosition;
+
+    public event Action OnClicked;
+    public event Action OnExit;
 
     public Vector3 GetSelectedMapPosition()
     {
@@ -23,5 +28,23 @@ public class PlacementInputManager : MonoBehaviour
         }
 
         return _lastPosition;
+    }
+
+    public bool IsPointerOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnClicked?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnExit?.Invoke();
+        }
     }
 }
