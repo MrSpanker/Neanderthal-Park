@@ -11,26 +11,30 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private Grid _grid;
     [SerializeField] private ObjectsDatabaseSO _objectsDatabaseSO;
     [SerializeField] private GameObject _gridVisualization;
+    [SerializeField] private GridData _gridData;
+    [SerializeField] private AudioSource _audioSource
+
+    private Renderer _previewRenderer;
 
     private int _selectedObjectIndex = -1;
 
     private void Start()
     {
         StopPlacement();
+        _gridData = new GridData();
+        _previewRenderer = _cellIndicator.GetComponentInChildren<Renderer>();
     }
 
     private void StopPlacement()
     {
         _selectedObjectIndex = -1;
-
         _gridVisualization.SetActive(false);
         _cellIndicator.SetActive(false);
         _placementInputManager.OnClicked -= PlaceStructure;
         _placementInputManager.OnExit -= StopPlacement;
-
     }
 
-    private void StartPlacement(int ID)
+    public void StartPlacement(int ID)
     {
         StopPlacement();
         _selectedObjectIndex = _objectsDatabaseSO.ObjectsData.FindIndex(data => data.ID == ID);
@@ -45,7 +49,6 @@ public class PlacementSystem : MonoBehaviour
         _cellIndicator.SetActive(true);
         _placementInputManager.OnClicked += PlaceStructure;
         _placementInputManager.OnExit += StopPlacement;
-
     }
 
     private void PlaceStructure()
@@ -55,8 +58,12 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
+
+
         Vector3 mousePosition = _placementInputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = _grid.WorldToCell(mousePosition);
+
+
         GameObject newObject = Instantiate(_objectsDatabaseSO.ObjectsData[_selectedObjectIndex].Prefab);
         newObject.transform.position = _grid.CellToWorld(gridPosition);
     }
