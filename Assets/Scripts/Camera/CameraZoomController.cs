@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
@@ -14,6 +15,7 @@ public class CameraZoomController : MonoBehaviour
     private void Start()
     {
         _camera = GetComponent<Camera>();
+        _camera.fieldOfView = _scrollLimit.x;
         //_initialOrthographicSize = _camera.orthographicSize;
         //_initialTrapezoidScale = _miniMapTrapezoid.localScale;
     }
@@ -27,8 +29,10 @@ public class CameraZoomController : MonoBehaviour
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         scroll = scroll * _scrollSpeed * Time.deltaTime;
-        _camera.orthographicSize -= scroll;
-        _camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, _scrollLimit.x, _scrollLimit.y);
+        _camera.fieldOfView -= scroll;
+        _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _scrollLimit.x, _scrollLimit.y);
+        //_camera.orthographicSize -= scroll;
+        //_camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, _scrollLimit.x, _scrollLimit.y);
         //UpdateMiniMapTrapezoid();
     }
 
