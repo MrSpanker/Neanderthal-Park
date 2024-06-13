@@ -31,8 +31,10 @@ namespace Dragoncraft
         {
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             scroll = scroll * _scrollSpeed * Time.deltaTime;
-            _camera.orthographicSize -= scroll;
-            _camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, _scrollLimit.x, _scrollLimit.y);
+            _camera.fieldOfView -= scroll;
+            _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _scrollLimit.x, _scrollLimit.y);
+            //_camera.orthographicSize -= scroll;
+            //_camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, _scrollLimit.x, _scrollLimit.y);
             //UpdateMiniMapTrapezoid();
         }
 
