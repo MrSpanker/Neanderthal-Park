@@ -15,7 +15,7 @@ public class CameraZoomController : MonoBehaviour
     private void Start()
     {
         _camera = GetComponent<Camera>();
-        _camera.fieldOfView = _scrollLimit.x;
+        _camera.fieldOfView = _scrollLimit.y;
         //_initialOrthographicSize = _camera.orthographicSize;
         //_initialTrapezoidScale = _miniMapTrapezoid.localScale;
     }

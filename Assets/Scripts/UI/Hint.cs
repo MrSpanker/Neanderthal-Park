@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 
-[Serializable]
+[CreateAssetMenu]
 public class Hint : ScriptableObject
-{ 
+{
+    public int Number;
     public string HintText;
 }
