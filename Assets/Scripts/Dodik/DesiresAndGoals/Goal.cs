@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Jam/NewGoalData")]
-public class Goal : ScriptableObject
+[Serializable]
+public abstract class Goal 
 {
-    
+    public GameObject Target;
 }

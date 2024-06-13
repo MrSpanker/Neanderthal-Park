@@ -1,10 +1,22 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Jam/NewDesireData")]
-public class Desire : ScriptableObject
+[Serializable]
+public abstract class Desire
 {
-    [SerializeField] private List<Goal> _goalList = new();
+    public Queue<Goal> _goalQueue = new();
+
+    public Goal GetNewGoal()
+    {
+        if (_goalQueue.Count > 0)
+        {
+            return _goalQueue.Dequeue();
+        }
+        else
+        {
+            Debug.LogError("Все цели для желания " + GetType().Name + " выполнены");
+            return null;
+        }
+    }
 }
