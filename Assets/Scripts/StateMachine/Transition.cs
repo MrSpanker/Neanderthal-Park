@@ -6,8 +6,8 @@ public abstract class Transition : MonoBehaviour
 {
     public State TargetState => _targetState;
     public bool NeedTransit { get; protected set; }
-    
-    protected GameObject Target { get; private set; }
+    public GameObject Target { get; private set; }
+
     [SerializeField] private State _targetState;
 
     private void OnEnable()

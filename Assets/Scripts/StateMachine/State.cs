@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class State : MonoBehaviour
 {
     [SerializeField] protected List<Transition> _transitions;
-    protected GameObject Target { get; private set; }
+    public GameObject Target { get; protected set; }
 
     public void Enter(GameObject target)
     {
