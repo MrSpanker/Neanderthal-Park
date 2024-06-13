@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class LevelComponent : MonoBehaviour
 {
-    [SerializeField] private List<Zones> _zones = new();
-}
-
-[Serializable]
-public class Zones
-{
-    public List<Transform> _pointsToExplore = new();
-
+    public List<Vector3> PointsToExplore = new();
+    public List<Vector3> BranchPositions = new();
+    public Vector3 BonfirePosition = new();
 }
