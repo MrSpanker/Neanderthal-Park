@@ -7,7 +7,7 @@ public class GridData
 {
     Dictionary<Vector3Int, PlacementData> _placedObjects = new();
 
-    public void AddObjectAt(Vector3Int gridPosition, Vector3Int objectSize, int ID, int placedObjectIndex)
+    public void AddObjectAt(Vector3Int gridPosition, Vector2Int objectSize, int ID, int placedObjectIndex)
     {
         List<Vector3Int> positionToOccupy = CalculatePositions(gridPosition, objectSize);
         PlacementData data = new PlacementData(positionToOccupy, ID, placedObjectIndex);
@@ -21,7 +21,7 @@ public class GridData
         }
     }
 
-    private List<Vector3Int> CalculatePositions(Vector3Int gridPosition, Vector3Int objectSize)
+    private List<Vector3Int> CalculatePositions(Vector3Int gridPosition, Vector2Int objectSize)
     {
         List<Vector3Int> returnValues = new();
 
@@ -36,7 +36,7 @@ public class GridData
         return returnValues;
     }
 
-    public bool CanPlaceObjectAt(Vector3Int gridPosition, Vector3Int objectSize)
+    public bool CanPlaceObjectAt(Vector3Int gridPosition, Vector2Int objectSize)
     {
         List<Vector3Int> positionToOccupy = CalculatePositions(gridPosition, objectSize);
 

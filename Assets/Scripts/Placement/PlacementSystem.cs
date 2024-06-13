@@ -11,17 +11,19 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private Grid _grid;
     [SerializeField] private ObjectsDatabaseSO _objectsDatabaseSO;
     [SerializeField] private GameObject _gridVisualization;
-    [SerializeField] private GridData _gridData;
-    [SerializeField] private AudioSource _audioSource
+    [SerializeField] private GridData _floorData;
+    [SerializeField] private GridData _itemsData;
+    [SerializeField] private AudioSource _audioSource;
 
     private Renderer _previewRenderer;
-
     private int _selectedObjectIndex = -1;
+    private List<GameObject> _placedObjects = new List<GameObject>();
 
     private void Start()
     {
         StopPlacement();
-        _gridData = new GridData();
+        _floorData = new GridData();
+        _itemsData = new GridData();
         _previewRenderer = _cellIndicator.GetComponentInChildren<Renderer>();
     }
 
@@ -63,9 +65,24 @@ public class PlacementSystem : MonoBehaviour
         Vector3 mousePosition = _placementInputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = _grid.WorldToCell(mousePosition);
 
+        bool placementValidity = CheckPlacementValidity(gridPosition, _selectedObjectIndex);
 
+        if (placementValidity == false)
+            return;
+
+        _audioSource.Play();
         GameObject newObject = Instantiate(_objectsDatabaseSO.ObjectsData[_selectedObjectIndex].Prefab);
         newObject.transform.position = _grid.CellToWorld(gridPosition);
+        _placedObjects.Add( newObject );
+        GridData selectedData = _objectsDatabaseSO.ObjectsData[_selectedObjectIndex].ID == 0 ? _floorData : _itemsData;
+        selectedData.AddObjectAt(gridPosition, _objectsDatabaseSO.ObjectsData[_selectedObjectIndex].Size, _objectsDatabaseSO.ObjectsData[_selectedObjectIndex].ID, _placedObjects.Count - 1);
+    }
+
+    private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
+    {
+        GridData selectedData = _objectsDatabaseSO.ObjectsData[selectedObjectIndex].ID == 0 ? _floorData : _itemsData;
+
+        return selectedData.CanPlaceObjectAt(gridPosition, _objectsDatabaseSO.ObjectsData[selectedObjectIndex].Size);
     }
 
     private void Update()
@@ -77,6 +94,10 @@ public class PlacementSystem : MonoBehaviour
 
         Vector3 mousePosition = _placementInputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = _grid.WorldToCell(mousePosition);
+        bool placementValidity = CheckPlacementValidity(gridPosition, _selectedObjectIndex);
+
+        _previewRenderer.material.color = placementValidity ? Color.white : Color.red;
+
         _mouseIndicator.transform.position = mousePosition;
         _cellIndicator.transform.position = _grid.CellToWorld(gridPosition);
     }
