@@ -32,7 +32,7 @@ public class PreviewSystem : MonoBehaviour
     {
         if (size.x > 0 || size.y > 0)
         {
-            _cellIndicator.transform.localScale = new Vector3(size.x, 0.1f, size.y);
+            _cellIndicator.transform.localScale = new Vector3(size.x, 0.001f, size.y);
 
             _cellIndicatorRenderer.material.mainTextureScale = size;
         }

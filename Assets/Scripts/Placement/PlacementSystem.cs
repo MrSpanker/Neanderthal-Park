@@ -8,7 +8,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private PlacementInputManager _placementInputManager;
     [SerializeField] private Grid _grid;
     [SerializeField] private ObjectsDatabaseSO _objectsDatabaseSO;
-    [SerializeField] private GameObject _gridVisualization;
+    [SerializeField] private Material _gridMaterial;
     [SerializeField] private GridData _floorData;
     [SerializeField] private GridData _itemsData;
     [SerializeField] private AudioSource _audioSource;
@@ -30,7 +30,7 @@ public class PlacementSystem : MonoBehaviour
     private void StopPlacement()
     {
         _selectedObjectIndex = -1;
-        _gridVisualization.SetActive(false);
+        _gridMaterial.SetFloat("_Alpha", 0f);
         _previewSystem.StopShowingPreview();
         _placementInputManager.OnClicked -= PlaceStructure;
         _placementInputManager.OnExit -= StopPlacement;
@@ -48,7 +48,7 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
-        _gridVisualization.SetActive(true);
+        _gridMaterial.SetFloat("_Alpha", 1f);
         _previewSystem.StartShowingPlacementPreview(_objectsDatabaseSO.ObjectsData[_selectedObjectIndex].Prefab, _objectsDatabaseSO.ObjectsData[_selectedObjectIndex].Size);
         _placementInputManager.OnClicked += PlaceStructure;
         _placementInputManager.OnExit += StopPlacement;
@@ -104,7 +104,6 @@ public class PlacementSystem : MonoBehaviour
         {
             bool placementValidity = CheckPlacementValidity(gridPosition, _selectedObjectIndex);
 
-            //_mouseIndicator.transform.position = mousePosition;
             _previewSystem.UpdatePosition(_grid.CellToWorld(gridPosition), placementValidity);
             _lastDetectedPosition = gridPosition;
         }
