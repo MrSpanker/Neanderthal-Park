@@ -27,7 +27,6 @@ public class DodikPerceptionZones : BasePerceptionZones
             InvokeDangerDetectedAction(other.gameObject);
         }
     }
-
     public void SetSearchObjectTag(ObjectType objectType)
     {
         Debug.Log("Текущий тег для поиска - " +  objectType.ToString());
