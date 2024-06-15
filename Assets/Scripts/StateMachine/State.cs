@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
+    protected GameObject Target { get; set; }
     [SerializeField] protected List<Transition> _transitions;
-    public GameObject Target { get; protected set; }
 
     public void Enter(GameObject target)
     {

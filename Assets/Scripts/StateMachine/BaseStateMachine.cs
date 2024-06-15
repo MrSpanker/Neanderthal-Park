@@ -4,16 +4,13 @@ using UnityEngine;
 
 public abstract class BaseStateMachine : MonoBehaviour
 {
-    public State CurrentState => _currentState;
-
+    [SerializeField] protected State _firstState;
+    protected GameObject _target;
     protected State _currentState;
 
-    [SerializeField] protected State _firstState;
-    [SerializeField] public GameObject _target;
-
-    public void Start()
+    private void Start()
     {
-        Reset(_firstState);
+        ResetToStartState(_firstState);
     }
 
     private void Update()
@@ -26,7 +23,7 @@ public abstract class BaseStateMachine : MonoBehaviour
             Transit(nextState);
     }
 
-    private void Reset(State startState)
+    private void ResetToStartState(State startState)
     {
         _currentState = startState;
 
@@ -36,10 +33,15 @@ public abstract class BaseStateMachine : MonoBehaviour
             return;
         }
 
-        _currentState.Enter(_target);
+        EnterToState(_currentState);
 
         Debug.Log("Перезагрузилась " + GetType().Name);
         Debug.Log(GetType().Name + " вошёл в " + _currentState.GetType().Name);
+    }
+
+    private void EnterToState(State state)
+    {
+        state.Enter(_target);
     }
 
     private void Transit(State nextState)
@@ -55,13 +57,7 @@ public abstract class BaseStateMachine : MonoBehaviour
             return;
         }
 
-        _currentState.Enter(_target);
+        EnterToState(_currentState);
         Debug.Log(GetType().Name + " вошёл в " + _currentState.GetType().Name);
-    }
-
-    public void ChangeTarget(GameObject newTarget)
-    {
-        if (newTarget != null)
-            _target = newTarget;
     }
 }
