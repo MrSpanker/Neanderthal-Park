@@ -5,8 +5,4 @@ using UnityEngine;
 public class DodikStateMachine : BaseStateMachine
 {
 
-    public void SetTarget(GameObject target)
-    {
-        _target = target;
-    }
 }

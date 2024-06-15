@@ -5,10 +5,16 @@ public class EnemyPerceptionZones : BasePerceptionZones
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<DodikComponent>(out _))
+
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Точка интереса обнаружена: " + other.gameObject.name);
+            Debug.Log("Добыча обнаружена: " + other.gameObject.name);
             InvokeInterestingDetectedAction(other.gameObject);
+        }
+        else
+        {
+            Debug.Log(other.gameObject);
+
         }
     }
 }

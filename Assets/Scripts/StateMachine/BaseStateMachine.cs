@@ -60,4 +60,9 @@ public abstract class BaseStateMachine : MonoBehaviour
         EnterToState(_currentState);
         Debug.Log(GetType().Name + " вошёл в " + _currentState.GetType().Name);
     }
+
+    public void SetTarget(GameObject target)
+    {
+        _target = target;
+    }
 }
