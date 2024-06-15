@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Objects Database SO
   m_EditorClassIdentifier: 
   ObjectsData:
-  - <Name>k__BackingField: Bonfire
+  - <Name>k__BackingField: Tree
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 3351340062574227999, guid: e2ae4571cd953fc4d9ac9c8aa35fa547, type: 3}
+    <Prefab>k__BackingField: {fileID: 3418174434403784911, guid: fa03e2ca2033678408237f2d6f40a147, type: 3}
   - <Name>k__BackingField: Branch
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}

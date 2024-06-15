@@ -42,7 +42,7 @@ public class PlacementInputManager : MonoBehaviour
             OnClicked?.Invoke();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButtonDown(1))
         {
             OnExit?.Invoke();
         }

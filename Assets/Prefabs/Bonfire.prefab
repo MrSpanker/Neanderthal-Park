@@ -307,7 +307,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3827599712291349679}
-  - component: {fileID: 7619871856578633922}
   m_Layer: 0
   m_Name: Bonfire
   m_TagString: Untagged
@@ -332,18 +331,6 @@ Transform:
   - {fileID: 2505821850900325284}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7619871856578633922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3351340062574227999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d231349ab602e04ca6ff47081d72204, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6507361927743266188
 GameObject:
   m_ObjectHideFlags: 0
