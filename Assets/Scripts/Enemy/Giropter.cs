@@ -33,7 +33,8 @@ public class Giropter : MonoBehaviour
         mousePos.z = _camera.nearClipPlane;
         Ray ray = _camera.ScreenPointToRay(mousePos);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100))
+
+        if (Physics.Raycast(ray, out hit, 100, LayerMask.NameToLayer("Enemy")))
         {
             currentCollider = hit.collider;
             if (currentCollider == _giroCollider)
