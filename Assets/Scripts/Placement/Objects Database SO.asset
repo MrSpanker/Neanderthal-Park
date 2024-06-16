@@ -22,14 +22,14 @@ MonoBehaviour:
   - <Name>k__BackingField: Branch
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 2075573888387543354, guid: 245bec9c8e053c844b2688e4259eee7c, type: 3}
-    <Preview>k__BackingField: {fileID: 0}
+    <Prefab>k__BackingField: {fileID: 257016298524648113, guid: 245bec9c8e053c844b2688e4259eee7c, type: 3}
+    <Preview>k__BackingField: {fileID: 257016298524648113, guid: 88ce72efb29df4946b0338259ccb4416, type: 3}
     <Price>k__BackingField: 2
   - <Name>k__BackingField: Flower
     <ID>k__BackingField: 2
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 9045907530820596083, guid: 6321582fd341bbf4db21f72858565287, type: 3}
-    <Preview>k__BackingField: {fileID: 0}
+    <Preview>k__BackingField: {fileID: 9045907530820596083, guid: 8e37053974b06074f83b9125207e91f2, type: 3}
     <Price>k__BackingField: 2
   - <Name>k__BackingField: Stone
     <ID>k__BackingField: 3
@@ -37,27 +37,3 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 8631966499977426642, guid: 5db2cbca034657944a563c8b8ca70166, type: 3}
     <Preview>k__BackingField: {fileID: 8631966499977426642, guid: 514f08d015f948047be8dd1fe03c2ad7, type: 3}
     <Price>k__BackingField: 2
-  - <Name>k__BackingField: TreeModel
-    <ID>k__BackingField: 4
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 8803711a4b0f0c74394e970594ccc979, type: 3}
-    <Preview>k__BackingField: {fileID: 0}
-    <Price>k__BackingField: 2
-  - <Name>k__BackingField: BranchModel
-    <ID>k__BackingField: 5
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 4d1a0da2c55f98941b6e4c5e43cfd1f5, type: 3}
-    <Preview>k__BackingField: {fileID: 0}
-    <Price>k__BackingField: 2
-  - <Name>k__BackingField: FlowerModel
-    <ID>k__BackingField: 6
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
-    <Preview>k__BackingField: {fileID: 0}
-    <Price>k__BackingField: 0
-  - <Name>k__BackingField: StoneModel
-    <ID>k__BackingField: 7
-    <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 4f567321839fcd0458f031faacc21317, type: 3}
-    <Preview>k__BackingField: {fileID: 0}
-    <Price>k__BackingField: 0
