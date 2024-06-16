@@ -11,6 +11,7 @@ public class SearchingState : State
     [SerializeField] private float _maxWaitTime = 5f;
 
     private Vector3 _targetPosition;
+    private Vector3 _previousDirection = Vector3.zero;
     private float _defaultSpeed;
     private bool _isWaiting = false;
     private Coroutine _waitAndMoveCoroutine;
@@ -24,12 +25,24 @@ public class SearchingState : State
     {
         base.OnEnable();
 
+        SetSpeed(_moveSpeed);
+
         if (_agent != null && _agent.isOnNavMesh)
         {
-            SetSpeed(_moveSpeed);
             _agent.isStopped = false;
-            MoveToTarget();
         }
+
+        if (_previousDirection == Vector3.zero)
+        {
+            _targetPosition = GetRandomNavSphere(transform.position);
+        }
+        else
+        {
+            // Задать новое направление в противоположную сторону
+            _targetPosition = transform.position + (-_previousDirection.normalized * _wanderRadius);
+        }
+
+        MoveToTarget();
     }
 
     protected override void OnDisable()
@@ -37,13 +50,11 @@ public class SearchingState : State
         base.OnDisable();
 
         SetSpeed(_defaultSpeed);
-
         if (_waitAndMoveCoroutine != null)
         {
             StopCoroutine(_waitAndMoveCoroutine);
             _waitAndMoveCoroutine = null;
         }
-
         _isWaiting = false;
 
         if (_agent != null && _agent.isOnNavMesh)
@@ -86,6 +97,7 @@ public class SearchingState : State
 
     private void MoveToTarget()
     {
+        _previousDirection = _targetPosition - transform.position;
         _agent.SetDestination(_targetPosition);
     }
 

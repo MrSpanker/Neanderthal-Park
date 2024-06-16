@@ -9,6 +9,18 @@ public class DodikPerceptionZones : BasePerceptionZones
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.TryGetComponent<InterestingPlace>(out _))
+        {
+            Debug.Log("Точка интереса обнаружена: " + other.gameObject.name);
+            InvokeInterestingDetectedAction(other.gameObject);
+        }
+
+        else if (other.gameObject.TryGetComponent<EnemyComponent>(out _))
+        {
+            Debug.Log("Обнаружена опасность: " + other.gameObject.name);
+            InvokeDangerDetectedAction(other.gameObject);
+        }
+
         if (_currentObjectForSearch == ObjectType.Null)
         {
             Debug.Log("Объекта для поиска пока не назначено");
@@ -21,17 +33,7 @@ public class DodikPerceptionZones : BasePerceptionZones
             ObjectForSearchDetected?.Invoke(other.gameObject);
         }
 
-        else if (other.gameObject.TryGetComponent<InterestingPlace>(out _))
-        {
-            Debug.Log("Точка интереса обнаружена: " + other.gameObject.name);
-            InvokeInterestingDetectedAction(other.gameObject);
-        }
-
-        else if (other.gameObject.TryGetComponent<EnemyComponent>(out _))
-        {
-            Debug.Log("Обнаружена опасность: " + other.gameObject.name);
-            InvokeDangerDetectedAction(other.gameObject);
-        }
+        
     }
     public void SetSearchObjectTag(ObjectType objectType)
     {
