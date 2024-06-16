@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea03e0e839bfdc4e965ea8c32db2429, type: 3}
   m_Name: FindMushroom
   m_EditorClassIdentifier: 
-  Image: {fileID: 21300000, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
+  Image: {fileID: 21300000, guid: 46cb16aef8e6a6f449b5e044dc7b6763, type: 3}
   ObjectType: 9

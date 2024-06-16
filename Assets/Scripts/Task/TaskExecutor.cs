@@ -30,6 +30,10 @@ public class TaskExecutor : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 0; i < _taskViewList.Count; i++)
+        {
+            _taskViewList[i].SetActive(false);
+        }
         _taskStartDelay = StartCoroutine(StartNewTask());
     }
 
@@ -58,6 +62,11 @@ public class TaskExecutor : MonoBehaviour
 
     private IEnumerator StartNewTask()
     {
+        for (int i = 0; i < _taskViewList.Count; i++)
+        {
+            _taskViewList[i].SetActive(false);
+        }
+
         yield return new WaitForSeconds(_timeBetweenTasks);
 
         _currentTask = _taskContainer.GetNewTask();

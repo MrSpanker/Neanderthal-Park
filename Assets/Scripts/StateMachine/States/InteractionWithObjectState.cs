@@ -6,6 +6,7 @@ public class InteractionWithObjectState : State
 {
     public event UnityAction InteractionCompleted;
 
+    [SerializeField] private DodikPerceptionZones _dodikPerceptionZones;
     [SerializeField] private float _interactionDelay = 0.8f;
     [SerializeField] private float _animationDuration = 0.5f;
 
@@ -52,6 +53,7 @@ public class InteractionWithObjectState : State
     private IEnumerator InteractWithDelay(InteractiveObject interactiveObject, float animationDuration)
     {
         yield return new WaitForSeconds(_interactionDelay);
+        _dodikPerceptionZones.SetSearchObjectTag(ObjectType.Null);
 
         if (gameObject.activeInHierarchy && interactiveObject != null)
         {
