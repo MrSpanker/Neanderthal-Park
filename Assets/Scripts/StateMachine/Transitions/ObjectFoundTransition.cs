@@ -7,8 +7,9 @@ public class ObjectFoundTransition : Transition
     [SerializeField] private DodikPerceptionZones _dodikPerceptionZones;
     [SerializeField] private DodikStateMachine _dodikStateMachine;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _dodikPerceptionZones.ObjectForSearchDetected += SetNeedTransit;
     }
 

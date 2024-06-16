@@ -10,22 +10,35 @@ public class MoveToObjectState : State
 
     private float _defaultSpeed;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         _defaultSpeed = _agent.speed;
         SetSpeed(_moveSpeed);
+
+        if (_agent != null && _agent.isOnNavMesh)
+        {
+            _agent.isStopped = false;
+        }
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
+
         SetSpeed(_defaultSpeed);
+
+        if (_agent != null && _agent.isOnNavMesh)
+        {
+            _agent.isStopped = true;
+        }
     }
 
     private void Update()
     {
         if (Target == null || _agent == null || !_agent.isOnNavMesh) return;
 
-        _agent.isStopped = false;
         _agent.destination = Target.transform.position;
     }
 

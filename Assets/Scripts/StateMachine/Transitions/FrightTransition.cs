@@ -5,8 +5,9 @@ public class FrightTransition : Transition
     [SerializeField] private DodikPerceptionZones _perceptionZones;
     [SerializeField] private DodikStateMachine _stateMachine;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _perceptionZones.DangerDetected += OnDangerDetected;
     }
 

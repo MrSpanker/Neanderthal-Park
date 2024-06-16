@@ -5,8 +5,20 @@ using UnityEngine;
 public class InteractionTransition : Transition
 {
     [SerializeField] private DodikPerceptionZones _dodikPerceptionZones;
+    [SerializeField] private CollisionHandler _dodikCollisionHandler;
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        _dodikCollisionHandler.CollisionDetected += OnCollisionDetected;
+    }
+
+    private void OnDisable()
+    {
+        _dodikCollisionHandler.CollisionDetected -= OnCollisionDetected;
+    }
+
+    private void OnCollisionDetected(Collider other)
     {
         string otherTag = other.gameObject.tag;
         Debug.Log("Тег объекта: " + otherTag);

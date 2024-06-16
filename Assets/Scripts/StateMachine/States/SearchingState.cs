@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,35 +7,71 @@ public class SearchingState : State
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _moveSpeed = 20f;
     [SerializeField] private float _wanderRadius = 30f;
+    [SerializeField] private float _minWaitTime = 1f;
+    [SerializeField] private float _maxWaitTime = 5f;
 
     private Vector3 _targetPosition;
     private float _defaultSpeed;
+    private bool _isWaiting = false;
+    private Coroutine _waitAndMoveCoroutine;
 
     private void Start()
     {
-        _targetPosition = GetRandomNavSphere(transform.position);
+        _defaultSpeed = _agent.speed;
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        SetSpeed(_moveSpeed);
+
+        if (_agent != null && _agent.isOnNavMesh)
+        {
+            _agent.isStopped = false;
+        }
 
         MoveToTarget();
     }
 
-    private void OnEnable()
+    protected override void OnDisable()
     {
-        _defaultSpeed = _agent.speed;
-        SetSpeed(_moveSpeed);
-    }
 
-    private void OnDisable()
-    {
+        base.OnDisable();
+
         SetSpeed(_defaultSpeed);
+        if (_waitAndMoveCoroutine != null)
+        {
+            StopCoroutine(_waitAndMoveCoroutine);
+            _waitAndMoveCoroutine = null;
+        }
+        _isWaiting = false;
+
+        if (_agent != null && _agent.isOnNavMesh)
+        {
+            _agent.isStopped = true;
+        }
     }
 
     private void Update()
     {
-        if (_agent.remainingDistance <= _agent.stoppingDistance)
+        if (!_isWaiting && _agent.remainingDistance <= _agent.stoppingDistance)
         {
-            _targetPosition = GetRandomNavSphere(transform.position);
-            MoveToTarget();
+            _waitAndMoveCoroutine = StartCoroutine(WaitAndMove());
         }
+    }
+
+    private IEnumerator WaitAndMove()
+    {
+        SetActiveForAnimation(false);
+        _isWaiting = true;
+        float waitTime = Random.Range(_minWaitTime, _maxWaitTime);
+        yield return new WaitForSeconds(waitTime);
+
+        _targetPosition = GetRandomNavSphere(transform.position);
+        MoveToTarget();
+        _isWaiting = false;
+        SetActiveForAnimation(true);
     }
 
     private Vector3 GetRandomNavSphere(Vector3 origin)

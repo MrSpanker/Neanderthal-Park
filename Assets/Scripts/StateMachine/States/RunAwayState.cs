@@ -12,8 +12,10 @@ public class RunAwayState : State
 
     private float _defaultSpeed;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         if (_agent != null)
         {
             _defaultSpeed = _agent.speed;
@@ -21,8 +23,10 @@ public class RunAwayState : State
         }
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
+
         if (_agent != null)
         {
             SetSpeed(_defaultSpeed);

@@ -7,4 +7,5 @@ public enum ObjectType
     CampfirePlace,
     Rock,
     Bush,
+    Berries
 }

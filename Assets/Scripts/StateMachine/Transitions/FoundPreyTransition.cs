@@ -7,8 +7,9 @@ public class FoundPreyTransition : Transition
     [SerializeField] private EnemyPerceptionZones _enemyPerceptionZones;
     [SerializeField] private BaseStateMachine _stateMachine;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _enemyPerceptionZones.InterestingDetected += OnInterestingDetected;
     }
     

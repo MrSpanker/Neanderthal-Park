@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Stick
   - FxTemporaire
+  - CampfirePlace
+  - Berries
   layers:
   - Default
   - TransparentFX
@@ -13,14 +15,14 @@ TagManager:
   - Placement
   - Water
   - UI
-  - PerceptionZones
+  - DodikPerceptionZones
   - InterestingPlace
   - Enemy
   - Ground
   - Enviroment
   - Dodik
   - PlayerTools
-  - 
+  - EnemyPerceptionZones
   - 
   - 
   - 

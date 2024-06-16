@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class DistanceTransition : Transition
 {
-    //[SerializeField] private DodikComponent _dodikComponent;
-    //[SerializeField] private float _rangeSpread;
-    //private float _transirionRange;
+    [SerializeField] private float _transitionRange;
 
-    //private void Start()
-    //{
-    //    _transirionRange += Random.Range(-_rangeSpread, _rangeSpread);
-    //}
+    private float _currentDistance;
 
-    //private void Update()
-    //{
-    //    if (_dodikComponent.TargetPointForSearch != null && 
-    //        Vector2.Distance(transform.position, _dodikComponent.TargetPointForSearch) < _transirionRange)
-    //        NeedTransit = true;
-    //}
+    private void Update()
+    {
+        if (Target != null)
+        {
+            Vector3 currentPositionXZ = new(transform.position.x, 0, transform.position.z);
+            Vector3 targetPositionXZ = new(Target.transform.position.x, 0, Target.transform.position.z);
+
+            _currentDistance = Vector3.Distance(currentPositionXZ, targetPositionXZ);
+
+            if (_currentDistance < _transitionRange)
+                NeedTransit = true;
+        }
+    }
 }
