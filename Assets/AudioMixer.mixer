@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-6495831881534172697
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: c51b681b65c01e241a6ed5c7b9e53ae1
+  m_EffectName: Attenuation
+  m_MixLevel: c41d61161d75f8a4186501a7ad0db4c4
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -20,6 +34,7 @@ AudioMixerController:
   - guids:
     - 41ee2707fd8038444b0f1e1b1118b610
     - f115ae31158100e47a48092a971cadcc
+    - 122e8e4370e9a594eaf667293f7e5e9a
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -34,6 +49,7 @@ AudioMixerGroupController:
   m_GroupID: 41ee2707fd8038444b0f1e1b1118b610
   m_Children:
   - {fileID: 5907185564487627161}
+  - {fileID: 9113433250957486784}
   m_Volume: 954e7620854b7444088ef21b72ea8f80
   m_Pitch: 786dcf24f6c269b43b350a3e9dfb9603
   m_Send: 00000000000000000000000000000000
@@ -97,6 +113,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 833199837082269374}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &9113433250957486784
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dodik
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 122e8e4370e9a594eaf667293f7e5e9a
+  m_Children: []
+  m_Volume: 23f96c2a917a8d74890f923044136d3d
+  m_Pitch: 8d3f9c4845b95b445b08105532487925
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6495831881534172697}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

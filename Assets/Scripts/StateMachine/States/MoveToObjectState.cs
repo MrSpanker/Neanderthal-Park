@@ -7,6 +7,8 @@ public class MoveToObjectState : State
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private List<AudioClip> _audioClips;
 
     private float _defaultSpeed;
 
@@ -20,6 +22,10 @@ public class MoveToObjectState : State
             SetSpeed(_moveSpeed);
             _agent.isStopped = false;
         }
+
+        System.Random random = new();
+        int randomNumber = random.Next(0, 2);
+        _audioSource.PlayOneShot(_audioClips[randomNumber]);
     }
 
     protected override void OnDisable()

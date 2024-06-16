@@ -9,6 +9,8 @@ public class RunAwayState : State
     [SerializeField] private Transform _objectToMove;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _fleeDistance;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
 
     private float _defaultSpeed;
 
@@ -22,6 +24,8 @@ public class RunAwayState : State
             SetSpeed(_moveSpeed);
             _agent.isStopped = false;
         }
+
+        _audioSource.PlayOneShot(_audioClip);
     }
 
     protected override void OnDisable()

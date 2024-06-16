@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class MushroomInteractive : InteractiveObject
 {
+    [SerializeField] private AudioSource _audioSource;   
+
     public override void Interact()
     {
+        _audioSource.Play();
         GameObject.Destroy(this.gameObject);
     }
 }

@@ -11,6 +11,8 @@ public class TaskExecutor : MonoBehaviour
     [SerializeField] private MoodDodik _moodDodik;
     [SerializeField] private List<GameObject> _taskViewList;
     [SerializeField] private float _timeBetweenTasks = 5f;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
 
     private TaskData _currentTask;
     private int _currentSubTaskIndex = 0;
@@ -62,6 +64,9 @@ public class TaskExecutor : MonoBehaviour
 
     private IEnumerator StartNewTask()
     {
+        if (_currentSubTaskIndex != 0)
+            _audioSource.PlayOneShot(_audioClip);
+
         for (int i = 0; i < _taskViewList.Count; i++)
         {
             _taskViewList[i].SetActive(false);
