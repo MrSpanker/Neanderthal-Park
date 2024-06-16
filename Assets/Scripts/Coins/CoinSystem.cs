@@ -10,7 +10,7 @@ public class CoinSystem : MonoBehaviour
     [SerializeField] private int _minCoinAddTime;
     [SerializeField] private int _maxCoinAddTime;
 
-    private int _coins = 0;
+    [SerializeField] private int _coins = 12;
 
     private float _time = 0;
     private int _nextCoinsTime = 0;

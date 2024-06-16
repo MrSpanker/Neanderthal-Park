@@ -9,6 +9,7 @@ public class Giropter : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private DodikComponent _dodik;
     [SerializeField] private Collider _giroCollider;
+    [SerializeField] private LayerMask _layerMask;
 
 
     [SerializeField] int _healthGiro;
@@ -34,7 +35,7 @@ public class Giropter : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 100, LayerMask.NameToLayer("Enemy")))
+        if (Physics.Raycast(ray, out hit, 100, _layerMask))
         {
             currentCollider = hit.collider;
             if (currentCollider == _giroCollider)

@@ -166,9 +166,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minCoinsAdded: 2
-  _maxCoinsAdded: 10
-  _minCoinAddTime: 2
+  _maxCoinsAdded: 4
+  _minCoinAddTime: 4
   _maxCoinAddTime: 10
+  _coins: 12
   OnCoinsChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -545,11 +546,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _placementInputManager: {fileID: 5355630594247018339}
-  _coinSystem: {fileID: 0}
+  _coinSystem: {fileID: 7323058676667065521}
   _grid: {fileID: 7221684825927986294}
   _objectsDatabaseSO: {fileID: 11400000, guid: d91cc89436e42434cae19d219f2fa195, type: 2}
-  _gridMaterial: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _gridMaterial: {fileID: 2100000, guid: 0897cb463a4fc0343b0f01cfc341d98f, type: 2}
+  _audioSource: {fileID: 8187940457838220157}
   _correctPlacement: {fileID: 8300000, guid: 94fdf9e0284cbf44591b348737794673, type: 3}
   _wrongPlacement: {fileID: 8300000, guid: 6c172addaa691954cafb1af1f470f51f, type: 3}
   _notEnoughCoins: {fileID: 0}

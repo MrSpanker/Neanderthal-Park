@@ -38,10 +38,14 @@ public class RunAwayState : State
 
     private void Update()
     {
-        if (Target == null || _objectToMove == null) return;
+        if (Target == null || _objectToMove == null)
+        {
+            SetSpeed(0f);
+            return;
+        }
 
-        // Проверяем расстояние между текущим объектом и объектом, от которого нужно убегать (Target)
-        if (Vector3.Distance(_objectToMove.position, Target.transform.position) < _fleeDistance)
+            // Проверяем расстояние между текущим объектом и объектом, от которого нужно убегать (Target)
+            if (Vector3.Distance(_objectToMove.position, Target.transform.position) < _fleeDistance)
         {
             // Вычисляем направление, в котором нужно убегать
             Vector3 fleeDirection = _objectToMove.position - Target.transform.position;
