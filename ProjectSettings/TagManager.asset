@@ -13,6 +13,7 @@ TagManager:
   - Mushroom
   - Water
   - BonFire
+  - Border
   layers:
   - Default
   - TransparentFX

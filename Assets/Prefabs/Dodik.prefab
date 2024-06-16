@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 4050591091647836466}
   - component: {fileID: 8256359746410268304}
   - component: {fileID: 8258856175792077039}
+  - component: {fileID: 434105974855826863}
+  - component: {fileID: 3441265965237901552}
   m_Layer: 11
   m_Name: StateMachine
   m_TagString: Untagged
@@ -71,7 +73,7 @@ MonoBehaviour:
   _animator: {fileID: 7742465551252690240}
   _animationParameterName: Walk
   _agent: {fileID: 9126737039171323507}
-  _moveSpeed: 3
+  _moveSpeed: 1
   _wanderRadius: 40
   _minWaitTime: 1
   _maxWaitTime: 3
@@ -142,6 +144,7 @@ MonoBehaviour:
   - {fileID: 4050591091647836466}
   _animator: {fileID: 7742465551252690240}
   _animationParameterName: 
+  _dodikPerceptionZones: {fileID: 7727925584629012344}
   _interactionDelay: 1
   _animationDuration: 0.4
 --- !u!114 &4050591091647836466
@@ -195,6 +198,41 @@ MonoBehaviour:
   _objectToMove: {fileID: 6305803792086551004}
   _agent: {fileID: 9126737039171323507}
   _fleeDistance: 25
+--- !u!114 &434105974855826863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431622093221805951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561ab48292227a245a27f057db840134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _needTransit: 0
+  _targetState: {fileID: 3441265965237901552}
+  _collisionHandler: {fileID: 243445139083334535}
+--- !u!114 &3441265965237901552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431622093221805951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac190a7687aa1e438121d8ec81f543d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+  _animator: {fileID: 0}
+  _animationParameterName: Scared
+  _speed: 9
+  _objectToMove: {fileID: 6305803792086551004}
+  _agent: {fileID: 9126737039171323507}
+  _fleeDistance: 50
+  _pointBehindPlayer: {fileID: 125568315885237339}
 --- !u!1 &1170386461314802200
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 1170386461314802200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -276,7 +314,43 @@ MonoBehaviour:
   _dodikComponent: {fileID: 2161347474590872605}
   _interactionWithObjectState: {fileID: 1737490216054855062}
   _moodDodik: {fileID: 0}
-  _taskViewList: []
+  _taskViewList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _timeBetweenTasks: 5
+--- !u!1 &3311549855865972280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125568315885237339}
+  m_Layer: 11
+  m_Name: PointBehindPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &125568315885237339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311549855865972280}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6305803792086551004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4467078344129750660
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,8 +484,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _taskList:
-  - {fileID: 11400000, guid: 8e49832772387754bb82b9da638e5788, type: 2}
   - {fileID: 11400000, guid: 514d3494eb4d3b1459a58e2b5d4b5b8d, type: 2}
+  - {fileID: 11400000, guid: 8e49832772387754bb82b9da638e5788, type: 2}
+  - {fileID: 11400000, guid: 3fe744378e56cf04fa85897aed4f9b14, type: 2}
+  - {fileID: 11400000, guid: 95b856909e55dca46b873fd5afc6829c, type: 2}
+  - {fileID: 11400000, guid: 08a6e9ba519407748b3f19c8e7b50bff, type: 2}
+  - {fileID: 11400000, guid: 00494450976f4b7478b99ac88d39d7a4, type: 2}
+  - {fileID: 11400000, guid: 3fe744378e56cf04fa85897aed4f9b14, type: 2}
+  - {fileID: 11400000, guid: 00494450976f4b7478b99ac88d39d7a4, type: 2}
+  - {fileID: 11400000, guid: 08a6e9ba519407748b3f19c8e7b50bff, type: 2}
 --- !u!1 &5630431766664677059
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +531,7 @@ Transform:
   - {fileID: 311331415041058272}
   - {fileID: 1786155755200122010}
   - {fileID: 2010334163938851990}
+  - {fileID: 125568315885237339}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &9126737039171323507
@@ -535,7 +617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dodikStateMachine: {fileID: 2081668637713502140}
-  _levelComponent: {fileID: 0}
   _dodikPerceptionZones: {fileID: 7727925584629012344}
 --- !u!114 &243445139083334535
 MonoBehaviour:
@@ -558,16 +639,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 311331415041058272}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6a4697f5fd4f77349a2b96fd7f2d9fe5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a4697f5fd4f77349a2b96fd7f2d9fe5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a4697f5fd4f77349a2b96fd7f2d9fe5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6a4697f5fd4f77349a2b96fd7f2d9fe5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.84
+      value: 0.369
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4697f5fd4f77349a2b96fd7f2d9fe5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0.647
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4697f5fd4f77349a2b96fd7f2d9fe5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4697f5fd4f77349a2b96fd7f2d9fe5, type: 3}
       propertyPath: m_LocalRotation.w

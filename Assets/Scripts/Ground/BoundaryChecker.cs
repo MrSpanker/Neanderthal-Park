@@ -5,6 +5,7 @@ public class BoundaryChecker : MonoBehaviour
     [SerializeField] private Vector3 _areaCenter = Vector3.zero;
     [SerializeField] private Vector3 _areaSize = new Vector3(100f, 0f, 200f);
     [SerializeField] private Transform _dodik;
+    [SerializeField] private GameObject _loseMenu;
 
     private float _minX;
     private float _maxX;
@@ -25,14 +26,6 @@ public class BoundaryChecker : MonoBehaviour
         CalculateMinMaxBounds();
     }
 #endif
-
-    private void Update()
-    {
-        if (!IsObjectWithinBounds(_dodik))
-        {
-            Debug.Log("ƒŒƒ»  —¡≈∆¿À !!");
-        }
-    }
 
     private void OnDrawGizmos()
     {
