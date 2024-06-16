@@ -20,9 +20,9 @@ public class PreviewSystem : MonoBehaviour
         _cellIndicator.SetActive(false);
     }
 
-    public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size)
+    public void StartShowingPlacementPreview(GameObject preview, Vector2Int size)
     {
-        _previewObject = Instantiate(prefab);
+        _previewObject = Instantiate(preview);
         PreparePreview(_previewObject);
         PrepareIndicator(size);
         _cellIndicator.SetActive(true);
@@ -40,7 +40,7 @@ public class PreviewSystem : MonoBehaviour
 
     private void PreparePreview(GameObject previewObject)
     {
-        Renderer[] renderers = _previewObject.GetComponentsInChildren<Renderer>();
+        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
 
         foreach (Renderer renderer in renderers)
         {
@@ -66,8 +66,6 @@ public class PreviewSystem : MonoBehaviour
         MovePreview(position);
         MoveCursor(position);
         ApplyFeedback(validity);
-
-
     }
 
     private void ApplyFeedback(bool validity)
