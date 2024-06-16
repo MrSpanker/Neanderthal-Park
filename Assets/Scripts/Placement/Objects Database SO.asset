@@ -46,6 +46,6 @@ MonoBehaviour:
   - <Name>k__BackingField: Scarecrow
     <ID>k__BackingField: 5
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 5880797563127281583, guid: ef2da464c5176844581407f9763d349a, type: 3}
+    <Prefab>k__BackingField: {fileID: 9045907530820596083, guid: cfccbbad15867f44492eb651df117cd1, type: 3}
     <Preview>k__BackingField: {fileID: 9045907530820596083, guid: f1f02f7dd8052734588282d16f3f3c89, type: 3}
     <Price>k__BackingField: 5

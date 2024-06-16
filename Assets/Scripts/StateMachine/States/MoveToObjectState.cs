@@ -24,7 +24,7 @@ public class MoveToObjectState : State
         }
 
         System.Random random = new();
-        int randomNumber = random.Next(0, 2);
+        int randomNumber = random.Next(0, _audioClips.Count);
         _audioSource.PlayOneShot(_audioClips[randomNumber]);
     }
 
