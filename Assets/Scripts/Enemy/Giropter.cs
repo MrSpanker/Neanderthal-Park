@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class Giropter : MonoBehaviour
 {
+    [SerializeField] int _healthGiro;
+    [Space]
     [SerializeField] private Camera _camera;
     [SerializeField] ParticleSystem _particlesDead;
     [SerializeField] private ParticleSystem _particleHit;
     [SerializeField] private float _speed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private DodikComponent _dodik;
-    [SerializeField] private Collider _giroCollider;
     [SerializeField] private LayerMask _layerMask;
 
-
-    [SerializeField] int _healthGiro;
+    private Collider _giroCollider;
+    [SerializeField] private Animator _animator;
+    private void Start()
+    {
+        _giroCollider = GetComponent<Collider>();
+    }
     private void Update()
     {
         transform.position += Time.deltaTime * transform.forward * _speed;
@@ -42,6 +47,7 @@ public class Giropter : MonoBehaviour
             {
                 _healthGiro--;
                 _particleHit.Play();
+                _animator.SetTrigger("Damage");
                 if (_healthGiro < 0)
                 {
                     _particlesDead.gameObject.SetActive(true);
