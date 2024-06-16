@@ -7,6 +7,7 @@ public class BerriesInteractive : InteractiveObject
     [SerializeField] private GameObject _berriesBush;
     [SerializeField] private GameObject _noBerriesBush;
     [SerializeField] private float _recoveryTime;
+    [SerializeField] private Collider _collider;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class BerriesInteractive : InteractiveObject
     {
         _noBerriesBush.SetActive(!active);
         _berriesBush.SetActive(active);
+        _collider.enabled = active;
     }
 
     private IEnumerator RecoverBerries()

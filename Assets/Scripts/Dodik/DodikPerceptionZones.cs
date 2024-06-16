@@ -9,6 +9,12 @@ public class DodikPerceptionZones : BasePerceptionZones
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_currentObjectForSearch == ObjectType.Null)
+        {
+            Debug.Log("Объекта для поиска пока не назначено");
+            return;
+        }
+
         if (other.CompareTag(_currentObjectForSearch.ToString()))
         {
             Debug.Log("Обнаружен искомый объект: " + other.gameObject.name);
