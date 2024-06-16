@@ -36,15 +36,16 @@ public class SearchingState : State
 
     protected override void OnDisable()
     {
-
         base.OnDisable();
 
         SetSpeed(_defaultSpeed);
+
         if (_waitAndMoveCoroutine != null)
         {
             StopCoroutine(_waitAndMoveCoroutine);
             _waitAndMoveCoroutine = null;
         }
+
         _isWaiting = false;
 
         if (_agent != null && _agent.isOnNavMesh)

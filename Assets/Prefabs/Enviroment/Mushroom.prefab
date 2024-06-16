@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7828241833125920339}
   - component: {fileID: 438850041719888753}
-  m_Layer: 0
+  - component: {fileID: 7979004495562503650}
+  m_Layer: 10
   m_Name: Mushroom
-  m_TagString: Untagged
+  m_TagString: Mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +55,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 0.3, z: 0.4}
   m_Center: {x: 0.5, y: 0.21, z: 0.52}
+--- !u!114 &7979004495562503650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252329805460491467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91747865e5fd9ae4ea7a6cbe0710d5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionType: 0
 --- !u!1001 &2276208700779664457
 PrefabInstance:
   m_ObjectHideFlags: 0

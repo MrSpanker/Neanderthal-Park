@@ -8,6 +8,11 @@ TagManager:
   - FxTemporaire
   - CampfirePlace
   - Berries
+  - Stone
+  - Flower
+  - Mushroom
+  - Water
+  - BonFire
   layers:
   - Default
   - TransparentFX

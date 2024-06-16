@@ -5,7 +5,11 @@ public enum ObjectType
     Stick,
     Rabbit,
     CampfirePlace,
-    Rock,
+    Stone,
     Bush,
-    Berries
+    Berries,
+    Flower,
+    Mushroom,
+    Water,
+    BonFire
 }
