@@ -32,6 +32,7 @@ public class MoveToObjectState : State
         if (_agent != null && _agent.isOnNavMesh)
         {
             _agent.isStopped = true;
+            _agent.ResetPath();
         }
     }
 

@@ -21,6 +21,8 @@ public class EscapeFromCageState : State
         {
             _defaultSpeed = _agent.speed;
             SetSpeed(_speed);
+            _agent.speed = _speed; // ”становка скорости агента сразу
+            _agent.isStopped = false; // ”бедитьс€, что агент не остановлен
         }
 
         _loseMenu.SetActive(true);
@@ -39,10 +41,11 @@ public class EscapeFromCageState : State
 
     private void Update()
     {
-        if (_pointBehindPlayer == null || _objectToMove == null) return;
+        if (_pointBehindPlayer == null || _objectToMove == null || _agent == null) return;
 
         if (Vector3.Distance(_objectToMove.position, _pointBehindPlayer.position) < _fleeDistance)
         {
+            _pointBehindPlayer.parent = null;
             Vector3 fleeDirection = _objectToMove.position - _pointBehindPlayer.position;
             Vector3 fleeDestination = _objectToMove.position + fleeDirection.normalized * _fleeDistance;
             _agent.SetDestination(fleeDestination);
@@ -50,7 +53,12 @@ public class EscapeFromCageState : State
         }
         else
         {
-            SetSpeed(0f);
+            // ≈сли агент достиг цели или далеко от нее, можно сделать что-то другое
+            // Ќапример, перезадать цель или остановить агента
+            // _agent.SetDestination(_pointBehindPlayer.position);
+            // _agent.isStopped = true;
+            // _agent.speed = 0f;
+            // и т.д.
         }
     }
 
