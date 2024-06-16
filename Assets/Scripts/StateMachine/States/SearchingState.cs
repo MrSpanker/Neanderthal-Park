@@ -24,14 +24,12 @@ public class SearchingState : State
     {
         base.OnEnable();
 
-        SetSpeed(_moveSpeed);
-
         if (_agent != null && _agent.isOnNavMesh)
         {
+            SetSpeed(_moveSpeed);
             _agent.isStopped = false;
+            MoveToTarget();
         }
-
-        MoveToTarget();
     }
 
     protected override void OnDisable()

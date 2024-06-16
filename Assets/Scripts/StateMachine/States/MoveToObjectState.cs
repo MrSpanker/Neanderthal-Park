@@ -14,11 +14,10 @@ public class MoveToObjectState : State
     {
         base.OnEnable();
 
-        _defaultSpeed = _agent.speed;
-        SetSpeed(_moveSpeed);
-
         if (_agent != null && _agent.isOnNavMesh)
         {
+            _defaultSpeed = _agent.speed;
+            SetSpeed(_moveSpeed);
             _agent.isStopped = false;
         }
     }

@@ -233,6 +233,7 @@ MonoBehaviour:
   _agent: {fileID: 9126737039171323507}
   _fleeDistance: 50
   _pointBehindPlayer: {fileID: 125568315885237339}
+  _loseMenu: {fileID: 0}
 --- !u!1 &1170386461314802200
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +405,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &3177400221683146863
 SphereCollider:
@@ -425,8 +426,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 9
-  m_Center: {x: 0, y: 0, z: 8}
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 6}
 --- !u!114 &7727925584629012344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,7 +577,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
-  m_Center: {x: 0, y: 9.5, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1434220870590786265
 Rigidbody:
   m_ObjectHideFlags: 0

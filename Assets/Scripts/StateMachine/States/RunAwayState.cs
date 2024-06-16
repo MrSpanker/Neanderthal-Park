@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class RunAwayState : State
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _moveSpeed;
     [SerializeField] private Transform _objectToMove;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _fleeDistance;
@@ -16,10 +16,11 @@ public class RunAwayState : State
     {
         base.OnEnable();
 
-        if (_agent != null)
+        if (_agent != null && _agent.isOnNavMesh)
         {
             _defaultSpeed = _agent.speed;
-            SetSpeed(_speed);
+            SetSpeed(_moveSpeed);
+            _agent.isStopped = false;
         }
     }
 
@@ -27,9 +28,11 @@ public class RunAwayState : State
     {
         base.OnDisable();
 
-        if (_agent != null)
+        if (_agent != null && _agent.isOnNavMesh)
         {
             SetSpeed(_defaultSpeed);
+            _agent.isStopped = true;
+            _agent.ResetPath();
         }
     }
 
@@ -50,7 +53,7 @@ public class RunAwayState : State
             _agent.SetDestination(fleeDestination);
 
             // Устанавливаем скорость движения, если необходимо
-            SetSpeed(_speed);
+            SetSpeed(_moveSpeed);
         }
         else
         {
