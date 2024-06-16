@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1285507144799149237, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -202,7 +202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,7 +287,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4246479402191905792, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -372,7 +372,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -457,7 +457,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -542,7 +542,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -627,7 +627,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -712,7 +712,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -797,7 +797,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -882,7 +882,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 10faf8e89091c824f9846afe3890c1cd, type: 3}
+  - {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -913,9 +913,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 612270079296163380}
-  - component: {fileID: 1886158881085315068}
   m_Layer: 0
-  m_Name: Flower
+  m_Name: Flower 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,27 +937,6 @@ Transform:
   - {fileID: 2851135662930722797}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1886158881085315068
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9045907530820596083}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.49, y: 0.35, z: 0.5}
-  m_Center: {x: 0.5, y: 0.19, z: 0.52}
 --- !u!1001 &6378741453683526424
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2882898629922939021}
-  - component: {fileID: 3118505635258171212}
   m_Layer: 0
-  m_Name: Stone
+  m_Name: Stone 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,27 +33,6 @@ Transform:
   - {fileID: 1692499636923469614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3118505635258171212
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8631966499977426642}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.25, z: 0.5}
-  m_Center: {x: 0.5, y: 0.13, z: 0.52}
 --- !u!1001 &1815893302877691754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119,6 +97,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4f567321839fcd0458f031faacc21317, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 4f567321839fcd0458f031faacc21317, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 4f567321839fcd0458f031faacc21317, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 4f567321839fcd0458f031faacc21317, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c68bf439f932541ae49c7d2d3d1678, type: 2}
     - target: {fileID: 919132149155446097, guid: 4f567321839fcd0458f031faacc21317, type: 3}
       propertyPath: m_Name
       value: stone
@@ -207,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9157105887711914197, guid: c4f829cb7dd4b864caf8832ec5b1ee55, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
