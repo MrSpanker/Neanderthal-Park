@@ -506,6 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e8c79d469a54049a9b4cbcb7c334c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _colliders:
+  - {fileID: 7568306576056719512}
+  - {fileID: 3177400221683146863}
 --- !u!1 &5122127399802207043
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,14 +555,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _taskList:
   - {fileID: 11400000, guid: 514d3494eb4d3b1459a58e2b5d4b5b8d, type: 2}
-  - {fileID: 11400000, guid: 95b856909e55dca46b873fd5afc6829c, type: 2}
-  - {fileID: 11400000, guid: 08a6e9ba519407748b3f19c8e7b50bff, type: 2}
   - {fileID: 11400000, guid: 8e49832772387754bb82b9da638e5788, type: 2}
+  - {fileID: 11400000, guid: 08a6e9ba519407748b3f19c8e7b50bff, type: 2}
   - {fileID: 11400000, guid: 3fe744378e56cf04fa85897aed4f9b14, type: 2}
+  - {fileID: 11400000, guid: 95b856909e55dca46b873fd5afc6829c, type: 2}
   - {fileID: 11400000, guid: 00494450976f4b7478b99ac88d39d7a4, type: 2}
-  - {fileID: 11400000, guid: 3fe744378e56cf04fa85897aed4f9b14, type: 2}
   - {fileID: 11400000, guid: 08a6e9ba519407748b3f19c8e7b50bff, type: 2}
   - {fileID: 11400000, guid: 514d3494eb4d3b1459a58e2b5d4b5b8d, type: 2}
+  - {fileID: 11400000, guid: 3fe744378e56cf04fa85897aed4f9b14, type: 2}
 --- !u!1 &5630431766664677059
 GameObject:
   m_ObjectHideFlags: 0
