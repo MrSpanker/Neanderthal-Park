@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionType: 1
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 7961887917947420287}
 --- !u!114 &2346011194746675686
 MonoBehaviour:
   m_ObjectHideFlags: 0
