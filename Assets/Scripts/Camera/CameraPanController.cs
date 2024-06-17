@@ -32,12 +32,12 @@ public class CameraPanController : MonoBehaviour
         UpdatePan();
         if (Input.GetKey(KeyCode.Space))
         {
-            ToDodik();
+            ToDodik(_cameraPosition);
         }
     }
-    public void ToDodik()
+    public void ToDodik(Vector3 target)
     {
-        transform.position = _dodik.transform.position + _cameraPosition;
+        transform.position = _dodik.transform.position + target;
     }
     private void UpdatePan()
     {
