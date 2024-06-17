@@ -17,8 +17,6 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private AudioClip _wrongPlacement;
     [SerializeField] private AudioClip _notEnoughCoins;
     [SerializeField] private PreviewSystem _previewSystem;
-    //[SerializeField] private GameObject _placementParticle;
-    //[SerializeField] private Vector3 _gridOffset;
 
     private int _selectedObjectIndex = -1;
     private List<GameObject> _placedObjects = new List<GameObject>();
@@ -80,9 +78,6 @@ public class PlacementSystem : MonoBehaviour
         }
 
         GameObject newObject = Instantiate(_objectsDatabaseSO.ObjectsData[_selectedObjectIndex].Prefab);
-        //GameObject newParticle = Instantiate(_placementParticle);
-        //newParticle.transform.position = _grid.CellToWorld(gridPosition);
-        //newParticle.transform.position = new Vector3(newParticle.transform.position.x + _gridOffset.x, mousePosition.y + _gridOffset.y, newParticle.transform.position.z + _gridOffset.z);  // redacted
         newObject.transform.position = _grid.CellToWorld(gridPosition);
         newObject.transform.position = new Vector3(newObject.transform.position.x, mousePosition.y, newObject.transform.position.z);  // redacted
         _placedObjects.Add(newObject);
@@ -91,12 +86,24 @@ public class PlacementSystem : MonoBehaviour
         _previewSystem.UpdatePosition(_grid.CellToWorld(gridPosition), false);
         _audioSource.PlayOneShot(_correctPlacement);
         _coinSystem.RemoveCoins(_objectsDatabaseSO.ObjectsData[_selectedObjectIndex].Price);
+
+        if (newObject.TryGetComponent(out ObjectPlacementData objectPlacementData))
+        {
+            objectPlacementData.GetGridPosition(gridPosition);
+            objectPlacementData.GetPlacementSystem(this);
+        }
     }
 
     private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
     {
         GridData selectedData = _objectsDatabaseSO.ObjectsData[selectedObjectIndex].ID == 0 ? _floorData : _itemsData;
         return selectedData.CanPlaceObjectAt(gridPosition, _objectsDatabaseSO.ObjectsData[selectedObjectIndex].Size);
+    }
+
+    public void RemoveObject(Vector3Int gridPosition)
+    {
+        GridData selectedData = _objectsDatabaseSO.ObjectsData[_selectedObjectIndex].ID == 0 ? _floorData : _itemsData;
+        selectedData.RemoveObjectAt(gridPosition);
     }
 
     private void Update()

@@ -21,6 +21,13 @@ public class GridData
         }
     }
 
+    internal int GetRepresentationIndex(Vector3Int gridPosition)
+    {
+        if (_placedObjects.ContainsKey(gridPosition) == false)
+            return -1;
+        return _placedObjects[gridPosition].PlacedObjectIndex;
+    }
+
     private List<Vector3Int> CalculatePositions(Vector3Int gridPosition, Vector2Int objectSize)
     {
         List<Vector3Int> returnValues = new();
@@ -47,5 +54,13 @@ public class GridData
         }
 
         return true;
+    }
+
+    internal void RemoveObjectAt(Vector3Int gridPosition)
+    {
+        foreach (var pos in _placedObjects[gridPosition]._occupiedPositions )
+        {
+            _placedObjects.Remove(pos);
+        }
     }
 }
