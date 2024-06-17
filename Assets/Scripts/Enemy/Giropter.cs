@@ -35,7 +35,7 @@ public class Giropter : MonoBehaviour
         Vector3 toDodik = _dodik.transform.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(toDodik);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, 2f, 5f), transform.position.z);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, 5f, 15f), transform.position.z);
         if (Input.GetMouseButtonDown(0))
         {
             Damage();
