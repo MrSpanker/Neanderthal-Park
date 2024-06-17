@@ -23,12 +23,6 @@ public class FishAI : MonoBehaviour
     private void ChangeTarget()
     {
         Transform newTarget = _pathways[Random.Range(0, _pathways.Count - 1)];
-
-        while (newTarget == _target)
-        {
-            newTarget = _pathways[Random.Range(0, _pathways.Count - 1)];
-        }
-
         _target = newTarget;
     }
 
@@ -45,6 +39,7 @@ public class FishAI : MonoBehaviour
         {
             _time = 0;
             RefreshNextTargetFocusTime();
+            ChangeTarget();
         }
     }
 
@@ -52,7 +47,8 @@ public class FishAI : MonoBehaviour
     {
         if (_fishing.IsFishCaught == false)
         {
-            transform.position = Vector2.Lerp(transform.position, _target.position, _speed * Time.deltaTime);
+            //transform.position = Vector2.Lerp(transform.position, _target.position, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
             TryChangeTarget();
         }
     }
