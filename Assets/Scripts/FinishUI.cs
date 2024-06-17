@@ -7,7 +7,7 @@ public class FinishUI : MonoBehaviour
     [SerializeField] private CameraZoomController _cameraZoomController;
     [SerializeField] private CameraPanController _cameraPanController;
     [SerializeField] private Animator   _animatorDodik;
-    [SerializeField] private Vector3 _cameraPosition;
+
     [SerializeField] GameObject[] _enablesGameObjects;
 
     [ContextMenu("Finish")]
@@ -15,7 +15,7 @@ public class FinishUI : MonoBehaviour
     {
         _cameraZoomController.ZoomToPlayer();
         _cameraZoomController.enabled = false;
-        _cameraPanController.transform.position = _animatorDodik.transform.position + _cameraPosition;
+        _cameraPanController.ToDodik();
         _cameraPanController.enabled = false;
         _animatorDodik.SetBool("Extented", true);
         _finishUI.gameObject.SetActive(true);

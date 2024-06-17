@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraPanController : MonoBehaviour
@@ -6,7 +7,9 @@ public class CameraPanController : MonoBehaviour
     [SerializeField] private float _initialPanSpeed = 1f; 
     [SerializeField] private float _maxPanSpeed = 10f;
     [SerializeField] private float _accelerationTime = 2f; 
-    [SerializeField] private BoundaryChecker _boundaryChecker; 
+    [SerializeField] private BoundaryChecker _boundaryChecker;
+    [SerializeField] private Vector3 _cameraPosition;
+    [SerializeField] private GameObject _dodik;
 #if UNITY_EDITOR
     [SerializeField] private bool _disableCameraMovement = false;
 #endif
@@ -27,8 +30,15 @@ public class CameraPanController : MonoBehaviour
             return;
 #endif
         UpdatePan();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            ToDodik();
+        }
     }
-
+    public void ToDodik()
+    {
+        transform.position = _dodik.transform.position + _cameraPosition;
+    }
     private void UpdatePan()
     {
         Vector3 position = transform.position;
