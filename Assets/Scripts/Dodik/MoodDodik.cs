@@ -11,6 +11,7 @@ public class MoodDodik : MonoBehaviour
     [SerializeField] Sprite[] _moodlesSprites;
     [SerializeField] Color[] _moodlesColors;
     [SerializeField] WentAbroad _wentAbroad;
+    [SerializeField] float _value;
 
     private bool _stopMood;
     private void Update()
@@ -28,7 +29,7 @@ public class MoodDodik : MonoBehaviour
             _fillImage.color = _moodlesColors[1];
             _backgroundImage.sprite = _moodlesSprites[1];
         }
-        else if (_moodSlider.value < 0.4f)
+        else if (_moodSlider.value < 0.4f && _moodSlider.value != 0)
         {
             _fillImage.color = _moodlesColors[2];
             _backgroundImage.sprite = _moodlesSprites[2];
@@ -37,7 +38,6 @@ public class MoodDodik : MonoBehaviour
         {
             _wentAbroad.NeedTransit = true;
         }
-
     }
     public void StopMood()
     {
@@ -50,7 +50,7 @@ public class MoodDodik : MonoBehaviour
 
     public void PlusMood()
     {
-        _moodSlider.value = 1f;
+        _moodSlider.value += _value;
     }
 
 }
