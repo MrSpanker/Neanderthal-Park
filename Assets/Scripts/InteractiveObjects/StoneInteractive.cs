@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class StoneInteractive : InteractiveObject
 {
+    [SerializeField] private AudioSource _audioSource;
+
     public override void Interact()
     {
-        GameObject.Destroy(this.gameObject);
+        _audioSource.Play();
+        GameObject.Destroy(this.gameObject, 1);
     }
 }

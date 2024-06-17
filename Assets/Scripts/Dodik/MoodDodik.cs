@@ -10,7 +10,7 @@ public class MoodDodik : MonoBehaviour
     [SerializeField] Image _backgroundImage;
     [SerializeField] Sprite[] _moodlesSprites;
     [SerializeField] Color[] _moodlesColors;
-    [SerializeField] WentAbroad _wentAbroad;
+    [SerializeField] WentAbroadTransition _wentAbroad;
     [SerializeField] float _value;
 
     private bool _stopMood;
