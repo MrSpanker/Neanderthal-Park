@@ -5,6 +5,7 @@ using UnityEngine;
 public class FishAI : MonoBehaviour
 {
     [SerializeField] private List<Transform> _pathways = new List<Transform>();
+    [SerializeField] private Fishing _fishing;
     [SerializeField] private float _speed;
     [SerializeField] private int _minChangeTargetTime;
     [SerializeField] private int _maxChangeTargetTime;
@@ -15,6 +16,7 @@ public class FishAI : MonoBehaviour
 
     private void Start()
     {
+        RefreshNextTargetFocusTime();
         ChangeTarget();
     }
 
@@ -27,7 +29,7 @@ public class FishAI : MonoBehaviour
             newTarget = _pathways[Random.Range(0, _pathways.Count - 1)];
         }
 
-            _target = newTarget;
+        _target = newTarget;
     }
 
     private void RefreshNextTargetFocusTime()
@@ -48,7 +50,10 @@ public class FishAI : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.Lerp(transform.position, _target.position, _speed * Time.deltaTime);
-        TryChangeTarget();
+        if (_fishing.IsFishCaught == false)
+        {
+            transform.position = Vector2.Lerp(transform.position, _target.position, _speed * Time.deltaTime);
+            TryChangeTarget();
+        }
     }
 }
