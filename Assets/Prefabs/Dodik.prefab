@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e8c79d469a54049a9b4cbcb7c334c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _colliders: []
 --- !u!1 &5122127399802207043
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,8 +752,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 5
+  MaxDistance: 26
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

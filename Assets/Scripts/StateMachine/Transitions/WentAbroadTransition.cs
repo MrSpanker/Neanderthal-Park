@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WentAbroad : Transition
+public class WentAbroadTransition : Transition
 {
     [SerializeField] private CollisionHandler _collisionHandler;
 
