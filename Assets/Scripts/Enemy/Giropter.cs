@@ -13,6 +13,8 @@ public class Giropter : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private HintsSystem _hintSystem;
     [SerializeField] private FinishUI _finishUI;
+    [SerializeField] private AudioSource _audioSourceHit;
+    [SerializeField] private AudioClip _audioClipHit;
     private Collider _giroCollider;
     [SerializeField] private Animator _animator;
     private void Start()
@@ -57,6 +59,7 @@ public class Giropter : MonoBehaviour
                 _healthGiro--;
                 _particleHit.Play();
                 _animator.SetTrigger("Damage");
+                _audioSourceHit.PlayOneShot(_audioClipHit);
                 if (_healthGiro < 0)
                 {
                     _particlesDead.gameObject.SetActive(true);
