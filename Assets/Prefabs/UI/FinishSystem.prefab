@@ -44,13 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8da74a8d65628d468f5aab90388636c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _finishUI: {fileID: 0}
   _cameraZoomController: {fileID: 0}
   _cameraPanController: {fileID: 0}
   _animatorDodik: {fileID: 0}
-  _cameraPosition: {x: 0, y: 15, z: -15}
+  _toTarget: {x: 0, y: 5, z: -4}
+  _toTargetRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  _dodik: {fileID: 0}
+  _disablesGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _enablesGameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
