@@ -40,6 +40,11 @@ public class Fishing : MonoBehaviour
         _winningPanel.SetActive(false);
     }
 
+    public void StartFishing()
+    {
+        _fishingCanvas.SetActive(true);
+    }
+
     public void Close()
     {
         _winningPanel.SetActive(false);
