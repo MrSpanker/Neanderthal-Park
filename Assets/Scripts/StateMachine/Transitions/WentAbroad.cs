@@ -22,6 +22,7 @@ public class WentAbroad : Transition
         if (collider.gameObject.CompareTag("Border"))
         {
             NeedTransit = true;
+
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MoodDodik : MonoBehaviour
@@ -9,6 +10,7 @@ public class MoodDodik : MonoBehaviour
     [SerializeField] Image _backgroundImage;
     [SerializeField] Sprite[] _moodlesSprites;
     [SerializeField] Color[] _moodlesColors;
+    [SerializeField] WentAbroad _wentAbroad;
 
     private bool _stopMood;
     private void Update()
@@ -31,6 +33,11 @@ public class MoodDodik : MonoBehaviour
             _fillImage.color = _moodlesColors[2];
             _backgroundImage.sprite = _moodlesSprites[2];
         }
+        else if (_moodSlider.value <= 0)
+        {
+            _wentAbroad.NeedTransit = true;
+        }
+
     }
     public void StopMood()
     {
