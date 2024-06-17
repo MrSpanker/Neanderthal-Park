@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class InteractiveObject : MonoBehaviour
@@ -17,5 +14,6 @@ public abstract class InteractiveObject : MonoBehaviour
 public enum InteractionType
 {
     PickUp,
-    Build
+    Build,
+    Fishing
 }

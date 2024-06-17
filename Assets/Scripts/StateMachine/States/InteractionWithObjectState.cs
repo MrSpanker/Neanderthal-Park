@@ -28,10 +28,14 @@ public class InteractionWithObjectState : State
             _animationParameterName = _interactAnimationParameter;
             _currentAnimationDuration = _animationDuration;
         }
-        else
+        else if (interactiveObject.GetInteractionType() == InteractionType.Build)
         {
             _animationParameterName = _creationAnimationParameter;
             _currentAnimationDuration = _animationDuration * 4;
+        }
+        else if (interactiveObject.GetInteractionType() == InteractionType.Fishing)
+        {
+
         }
 
         base.OnEnable();
