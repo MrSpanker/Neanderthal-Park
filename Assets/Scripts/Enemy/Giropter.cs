@@ -11,12 +11,21 @@ public class Giropter : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private DodikComponent _dodik;
     [SerializeField] private LayerMask _layerMask;
-
+    [SerializeField] private HintsSystem _hintSystem;
+    [SerializeField] private FinishUI _finishUI;
     private Collider _giroCollider;
     [SerializeField] private Animator _animator;
     private void Start()
     {
         _giroCollider = GetComponent<Collider>();
+    }
+    private void OnEnable()
+    {
+        _hintSystem.AddHints();
+    }
+    private void OnDestroy()
+    {
+        _finishUI.Finish();
     }
     private void Update()
     {

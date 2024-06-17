@@ -5,7 +5,6 @@ using UnityEngine;
 public class TaskContainer : MonoBehaviour
 {
     [SerializeField] private List<TaskData> _taskList;
-
     private Queue<TaskData> _taskQueue;
 
     private void OnEnable()
@@ -21,13 +20,13 @@ public class TaskContainer : MonoBehaviour
 
     public TaskData GetNewTask()
     {
-        if (_taskQueue.Count > 0)
+        if (_taskQueue.Count > 0 && _taskQueue.Count != 1)
         {
             TaskData task = _taskQueue.Dequeue();
             Debug.Log("Текущая задача: " + task.name);
             return task;
         }
-        else
+        else 
         {
             Debug.LogWarning("Задач не осталось");
             return null;

@@ -24,7 +24,7 @@ public class HintsSystem : MonoBehaviour
         _previousButton.onClick.AddListener(PreviousHints);
     }
     [ContextMenu("Add")]
-    public void Addhints()
+    public void AddHints()
     {
         _numberHint = _hintsActive.Count - 1;
         OpenHints();
