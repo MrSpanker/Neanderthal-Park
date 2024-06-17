@@ -13,6 +13,7 @@ public class TaskExecutor : MonoBehaviour
     [SerializeField] private float _timeBetweenTasks = 5f;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _audioClip;
+    [SerializeField] private GameObject _bossHelicopter;
 
     private TaskData _currentTask;
     private int _currentSubTaskIndex = 0;
@@ -65,7 +66,10 @@ public class TaskExecutor : MonoBehaviour
     private IEnumerator StartNewTask()
     {
         if (_currentSubTaskIndex != 0)
+        {
             _audioSource.PlayOneShot(_audioClip);
+            _moodDodik.PlusMood();
+        }
 
         for (int i = 0; i < _taskViewList.Count; i++)
         {
@@ -78,14 +82,19 @@ public class TaskExecutor : MonoBehaviour
 
         if (_currentTask == null || _currentTask.SubTasks == null || _currentTask.SubTasks.Count == 0)
         {
-            Debug.LogError("Ќевозможно начать новую задачу: задача или подзадачи не заданы или отсутствуют.");
+            Debug.LogWarning("Ќевозможно начать новую задачу: задача или подзадачи не заданы или отсутствуют.");
+            StartBossFight();
             yield break;
         }
 
-        _moodDodik.PlusMood();
         _currentSubTaskIndex = 0;
         DisplayNewTaskView();
         StartNextSubTask();
+    }
+
+    private void StartBossFight()
+    {
+        _bossHelicopter.SetActive(true);
     }
 
     private void StartNextSubTask()
