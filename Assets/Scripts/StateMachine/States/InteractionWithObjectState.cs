@@ -10,6 +10,7 @@ public class InteractionWithObjectState : State
     [SerializeField] private float _interactionDelay = 0.8f;
     [SerializeField] private float _animationDuration = 0.5f;
     [SerializeField] private Fishing _fishing;
+    [SerializeField] private GameObject _speare;
 
     private readonly string _interactAnimationParameter = "Interact";
     private readonly string _creationAnimationParameter = "Creation";
@@ -71,6 +72,10 @@ public class InteractionWithObjectState : State
         if (gameObject.activeInHierarchy && interactiveObject != null)
         {
             interactiveObject.Interact();
+
+            if (interactiveObject.gameObject.CompareTag("Stone"))
+                _speare.SetActive(true);
+
             yield return new WaitForSeconds(animationDuration);
             InteractionCompleted?.Invoke();
         }
