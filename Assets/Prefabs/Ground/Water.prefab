@@ -5044,7 +5044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a67490704c2b443832183add605adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionType: 1
+  InteractionType: 2
   _audioSource: {fileID: 1125253601402694917}
 --- !u!1001 &2163438233116830138
 PrefabInstance:

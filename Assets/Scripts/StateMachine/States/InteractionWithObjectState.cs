@@ -9,6 +9,7 @@ public class InteractionWithObjectState : State
     [SerializeField] private DodikPerceptionZones _dodikPerceptionZones;
     [SerializeField] private float _interactionDelay = 0.8f;
     [SerializeField] private float _animationDuration = 0.5f;
+    [SerializeField] private Fishing _fishing;
 
     private readonly string _interactAnimationParameter = "Interact";
     private readonly string _creationAnimationParameter = "Creation";
@@ -35,12 +36,20 @@ public class InteractionWithObjectState : State
         }
         else if (interactiveObject.GetInteractionType() == InteractionType.Fishing)
         {
-
+            interactiveObject.Interact();
+            _fishing.StartFishing();
+            _fishing.OnFishingEnded.AddListener(WaitInteractionEnd);
+            return;
         }
 
         base.OnEnable();
-
         _interactionCoroutine = StartCoroutine(InteractWithDelay(interactiveObject, _currentAnimationDuration));
+    }
+
+    private void WaitInteractionEnd()
+    {
+        InteractionCompleted?.Invoke();
+        _fishing.OnFishingEnded.RemoveListener(WaitInteractionEnd);
     }
 
     protected override void OnDisable()
