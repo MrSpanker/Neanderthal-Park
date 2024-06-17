@@ -49,4 +49,8 @@ MonoBehaviour:
   _cameraPanController: {fileID: 0}
   _animatorDodik: {fileID: 0}
   _cameraPosition: {x: 0, y: 15, z: -15}
-  _stateMachine: {fileID: 0}
+  _enablesGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
