@@ -103,7 +103,8 @@ public class PlacementSystem : MonoBehaviour
     public void RemoveObject(Vector3Int gridPosition)
     {
         GridData selectedData = _objectsDatabaseSO.ObjectsData[_selectedObjectIndex].ID == 0 ? _floorData : _itemsData;
-        selectedData.RemoveObjectAt(gridPosition);
+        _itemsData.RemoveObjectAt(gridPosition);
+        _placedObjects.RemoveAt(_placedObjects.Count - 1);
     }
 
     private void Update()
