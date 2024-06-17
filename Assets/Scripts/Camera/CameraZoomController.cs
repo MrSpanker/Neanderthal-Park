@@ -6,6 +6,7 @@ public class CameraZoomController : MonoBehaviour
 {
     [SerializeField] private float _scrollSpeed = 1000f;
     [SerializeField] private Vector2 _scrollLimit = new Vector2(5f, 15f);
+    private bool _stopScroll = true;
     //[SerializeField] private Transform _miniMapTrapezoid;
 
     private Camera _camera = null;
@@ -27,13 +28,21 @@ public class CameraZoomController : MonoBehaviour
 
     private void UpdateZoom()
     {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        scroll = scroll * _scrollSpeed * Time.deltaTime;
-        _camera.fieldOfView -= scroll;
-        _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _scrollLimit.x, _scrollLimit.y);
+        if (_stopScroll)
+        {
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            scroll = scroll * _scrollSpeed * Time.deltaTime;
+            _camera.fieldOfView -= scroll;
+            _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _scrollLimit.x, _scrollLimit.y);
+        }
         //_camera.orthographicSize -= scroll;
         //_camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, _scrollLimit.x, _scrollLimit.y);
         //UpdateMiniMapTrapezoid();
+    }
+    public void ZoomToPlayer()
+    {
+        _camera.fieldOfView = _scrollLimit.x;
+        _stopScroll = false;
     }
 
     //private void UpdateMiniMapTrapezoid()
