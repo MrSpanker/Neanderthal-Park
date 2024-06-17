@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +19,10 @@ public class FinishUI : MonoBehaviour
     [ContextMenu("Finish")]
     public void Finish()
     {
+        StartCoroutine(FinishCorutine());
+    }
+    private void Finished()
+    {
         _cameraZoomController.ZoomToPlayer();
         _cameraPanController.ToDodik(_toTarget);
 
@@ -33,6 +39,9 @@ public class FinishUI : MonoBehaviour
         }
         _animatorDodik.SetBool("Extented", true);
     }
-
-
+    public IEnumerator FinishCorutine()
+    {
+        yield return new WaitForSeconds(3f);
+        Finished();
+    }
 }
